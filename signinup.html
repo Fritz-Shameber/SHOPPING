@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </section>
+
+    <div class="signup-container">
+        <h1>Create an Account</h1>
+        <form id="signup-form"> 
+            <div class="input-box">
+                <label for="new-username"></label>
+                <input type="text" id="new-username" placeholder="Enter a username" required>
+            </div>
+            <div class="input-box">
+                <label for="new-password"></label>
+                <input type="password" id="new-password" placeholder="Enter a password" required> 
+            </div>
+            <button type="button" id="signup-btn" class="btn">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #2e2d2d;
+        
+    }
+    
+    .signup-container {
+        text-align: center;
+        background: #2e2d2d;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(107, 32, 107, 0.8);
+        color: white;
+        width: 350px;
+        position: relative;
+    }
+    
+    h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        color: white;
+    }
+    
+    .input-box {
+        position: relative;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    
+    .input-box input {
+        width: 100%;
+        height: 50px;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: white;
+        font-weight: 600;
+        border-bottom: 2px solid white;
+        padding-right: 23px;
+        transition: .5s;
+    }
+    
+    .input-box input:focus,
+    .input-box input:valid {
+        border-bottom: 2px solid rgb(107, 32, 107);
+    }
+    
+    .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: white;
+        transition: .5s;
+    }
+    
+    .input-box input:focus + label,
+    .input-box input:valid + label {
+        top: -5px;
+        color: rgb(107, 32, 107);
+    }
+    
+    .btn {
+        width: 100%;
+        height: 45px;
+        background: transparent;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        border: 2px solid white;
+        overflow: hidden;
+        z-index: 1;
+        color: white;
+        transition: 0.5s;
+    }
+    
+    .btn::before {
+        content: "";
+        position: absolute;
+        height: 300%;
+        width: 100%;
+        background: linear-gradient(45deg, rgba(107, 32, 107, 0.7), rgba(54, 54, 54, 0.8));
+        top: -100%;
+        left: 0;
+        z-index: -1;
+        transition: .5s;
+    }
+    
+    .btn:hover::before {
+        top: 0;
+    }
+    
+    .btn:hover {
+        color: rgb(107, 32, 107);
+    }
+    
+    p {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    
+    p a {
+        color: yellow;
+        text-decoration: none;
+    }
+    
+    p a:hover {
+        text-decoration: underline;
+    }
+    
+    span {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        animation: animate 3s linear infinite;
+        opacity: 0.3;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    
+    span:nth-child(1) {
+        top: 5%;
+        left: 5%;
+        animation-delay: 0s;
+    }
+    
+    span:nth-child(2) {
+        top: 10%;
+        left: 10%;
+        animation-delay: 0.2s;
+    }
+    
+    span:nth-child(3) {
+        top: 15%;
+        left: 15%;
+        animation-delay: 0.4s;
+    }
+    
+    span:nth-child(4) {
+        top: 25%;
+        left: 5%;
+        animation-delay: 0.6s;
+    }
+    
+    span:nth-child(5) {
+        top: 20%;
+        left: 25%;
+        animation-delay: 0.8s;
+    }
+    
+    span:nth-child(6) {
+        top: 10%;
+        left: 35%;
+        animation-delay: 1s;
+    }
+    
+    span:nth-child(7) {
+        top: 25%;
+        left: 45%;
+        animation-delay: 1.2s;
+    }
+    
+    span:nth-child(8) {
+        top: 15%;
+        left: 55%;
+        animation-delay: 1.4s;
+    }
+    
+    span:nth-child(9) {
+        top: 30%;
+        left: 65%;
+        animation-delay: 1.6s;
+    }
+    
+    span:nth-child(10) {
+        top: 20%;
+        left: 75%;
+        animation-delay: 1.8s;
+    }
+    
+    @keyframes animate {
+        0% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-1000px, -1000px);
+            opacity: 0;
+        }
+    }
+    
+
+</style>
+
+<script>
+        document.getElementById("signup-btn").addEventListener("click", function() {
+            const newUsername = document.getElementById("new-username").value.trim();
+            const newPassword = document.getElementById("new-password").value.trim();
+
+            if (newUsername === "" || newPassword === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            localStorage.setItem("username", newUsername);
+            localStorage.setItem("password", newPassword);
+
+            alert("Account created successfully! You can now log in.");
+            window.location.href = 'login.html'; 
+        });
+    </script>

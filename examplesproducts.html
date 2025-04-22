@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHAT PRODUCTS</title>
+
+</head>
+
+<body>
+<main>
+  <ul class='slider'>
+    <li class='item' style="background-image: url('https://cdn.mos.cms.futurecdn.net/dP3N4qnEZ4tCTCLq59iysd.jpg')">
+      <div class='content'>
+        <h2 class='title'>"About the Dev"</h2>
+        <p class='description'> Hello! I’m a student currently pursuing my studies at the University of the Cordilleras. As an irregular student, my academic journey hasn’t followed the traditional path but that’s also what has shaped me to be adaptable, resilient, and deeply motivated.
+
+            Throughout my time at UC, I’ve learned to communicate effectively, learn from unexpected challenges, and improve my speaking abilities. I’m passionate about learning programming languages, open to growth, and driven to make the most out of every opportunity I come across both inside and outside the classroom.  </p>
+      
+      </div>
+    </li>
+    <li class='item' style="background-image: url('images/flat-lay-workstation-with-copy-space-laptop.jpg')">
+      <div class='content'>
+        <h2 class='title'>"Products"</h2>
+        <p class='description'> Explore our products consisting of affortable up to high gaming laptops.  </p>
+        <a href="shopcommerce.html">
+        <button>Explore</button>
+    </a>
+      </div>
+    </li>
+    <li class='item' style="background-image: url('images/Screenshot_2025-04-22-23-52-23-711_com.miui.gallery.jpg')">
+      <div class='content'>
+        <h2 class='title'>"University of the Cordilleras"</h2>
+        <p class='description'> UC is known for its strong academic programs, especially in the fields of law, criminology, engineering, and information technology. The university is committed to providing quality education that blends academic excellence with practical skills, and it continues to be a top choice for students in the Cordillera region and beyond. With a scenic campus nestled in the cool highlands of Baguio, UC fosters a learning environment that is both intellectually stimulating and culturally enriching.  </p>
+        
+        <a href="https://www.uc-bcf.edu.ph/integrated-school/shs">
+    <button>Read more</button>
+</a>
+
+
+      </div>
+    </li>
+    <li class='item' style="background-image: url('https://images7.alphacoders.com/878/878663.jpg')">
+      <div class='content'>
+        <h2 class='title'>"Pledge"</h2>
+        <p class='description'>
+            The developer is committed to quality, security, and exceptional service. Your trust means everything, and the developer works hard to make your shopping experience smooth and joyful. This developer is here to bring comfort, color, and care to every click, Rest assured that our products are in high quality and working</p>
+        
+      </div>
+    </li>
+    
+      </div>
+    </li>
+  </ul>
+  <nav class='nav'>
+    <ion-icon class='btn prev' name="&larr;"></ion-icon> 
+    <ion-icon class='btn next' name="&rarr;"></ion-icon>
+  </nav>
+</main>
+</body>
+</html>
+
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.item {
+  width: 200px;
+  height: 300px;
+  list-style-type: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 30px rgba(255,255,255,0.3) inset;
+  transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+
+  &:nth-child(1), &:nth-child(2) {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+  }
+
+  &:nth-child(3) { left: 50%; }
+  &:nth-child(4) { left: calc(50% + 220px); }
+  &:nth-child(5) { left: calc(50% + 440px); }
+  &:nth-child(6) { left: calc(50% + 660px); opacity: 0; }
+}
+
+.content {
+  width: min(30vw,400px);
+  position: absolute;
+  top: 50%;
+  left: 3rem;
+  transform: translateY(-50%);
+  font: 400 0.85rem helvetica,sans-serif;
+  color: white;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  opacity: 0;
+  display: none;
+
+  & .title {
+    font-family: 'arial-black';
+    text-transform: uppercase;
+  }
+
+  & .description {
+    line-height: 1.7;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  & button {
+    width: fit-content;
+    background-color: rgba(0,0,0,0.1);
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    cursor: pointer;
+  }
+}
+
+.item:nth-of-type(2) .content {
+  display: block;
+  animation: show 0.75s ease-in-out 0.3s forwards;
+}
+
+@keyframes show {
+  0% {
+    filter: blur(5px);
+    transform: translateY(calc(-50% + 75px));
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.nav {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  user-select: none;
+
+  & .btn {
+    background-color: rgba(255,255,255,0.5);
+    color: rgba(0,0,0,0.7);
+    border: 2px solid rgba(0,0,0,0.6);
+    margin: 0 0.25rem;
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(255,255,255,0.3);
+    }
+  }
+}
+
+@media (width > 650px) and (width < 900px) {
+  .content {
+    & .title        { font-size: 1rem; }
+    & .description  { font-size: 0.7rem; }
+    & button        { font-size: 0.7rem; }
+  }
+  .item {
+    width: 160px;
+    height: 270px;
+
+    &:nth-child(3) { left: 50%; }
+    &:nth-child(4) { left: calc(50% + 170px); }
+    &:nth-child(5) { left: calc(50% + 340px); }
+    &:nth-child(6) { left: calc(50% + 510px); opacity: 0; }
+  }
+}
+
+@media (width < 650px) {
+  .content {
+    & .title        { font-size: 0.9rem; }
+    & .description  { font-size: 0.65rem; }
+    & button        { font-size: 0.7rem; }
+  }
+  .item {
+    width: 130px;
+    height: 220px;
+
+    &:nth-child(3) { left: 50%; }
+    &:nth-child(4) { left: calc(50% + 140px); }
+    &:nth-child(5) { left: calc(50% + 280px); }
+    &:nth-child(6) { left: calc(50% + 420px); opacity: 0; }
+  }
+}
+</style>
+
+
+<script>
+const slider = document.querySelector('.slider');
+
+function activate(e) {
+  const items = document.querySelectorAll('.item');
+  e.target.matches('.next') && slider.append(items[0])
+  e.target.matches('.prev') && slider.prepend(items[items.length-1]);
+}
+
+document.addEventListener('click',activate,false);
+</script>

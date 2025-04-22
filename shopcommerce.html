@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOKEMERCE</title>
+
+  <a href="examplesproducts.html">
+    <button>&larr;</button>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background-color: #DFE7EF;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      margin-top: 50px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #5C7CFA;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 18rem;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+      transition: transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .card-body {
+      padding: 10px;
+      margin-top: -50px;
+      transition: all 1s ease-in-out;
+    }
+
+    .card:hover .card-body {
+      margin-top: 0;
+    }
+
+    .card-body a {
+      visibility: hidden;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .card:hover .card-body a {
+      visibility: visible;
+    }
+
+    .card-title {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .heart {
+      color: #989898;
+      font-size: 30px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .heart:hover {
+      color: red;
+      background-color: #f9f9f9;
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    .heart-active {
+      color: #C50707;
+    }
+
+    #toast, #toast-cart {
+      padding: 10px;
+      position: fixed;
+      width: 230px;
+      top: 0;
+      left: 80%;
+      transform: translate(-50%);
+      background-color: #EFF2FF;
+      color: #76777E;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      visibility: hidden;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      z-index: 1000;
+    }
+
+    #toast.show, #toast-cart.show {
+      visibility: visible;
+      animation: fadeInOut 3s;
+    }
+
+    @keyframes fadeInOut {
+      5%, 95% { opacity: 1; top: 50px }
+      15%, 85% { opacity: 1; top: 30px }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="toast"></div>
+  <div id="toast-cart"></div>
+
+  <div class="container">
+    <h1>Laptops</h1>
+    <hr>
+  </div>
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="card">
+
+        <span id="heart" class="heart" onclick="wishList()"><i class="fas fa-heart"></i></span>
+        <img src="images/Acer-Laptops-250x350.webp" alt="Black Pants">
+        <div class="card-body">
+          <a href="acer.html">Explore</a>
+          <hr>
+          <h5 class="card-title">ACER</h5>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <span id="heart-second" class="heart" onclick="wishList()"><i class="fas fa-heart"></i></span>
+        <img src="images/Asus-Laptops-250x350.webp" alt="T-shirt">
+        <div class="card-body">
+          <a href="asus.html">Explore</a>
+          <hr>
+          <h5 class="card-title">ASUS</h5>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <span id="heart-third" class="heart" onclick="wishList()"><i class="fas fa-heart"></i></span>
+        <img src="images/Dell-Laptops-250x350.webp" alt="Pants">
+        <div class="card-body">
+          <a href="dell.html">Explore</a>
+          <hr>
+          <h5 class="card-title">DELL</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

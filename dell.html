@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOKEMERCE</title>
+  <a href="shopcommerce.html">
+    <button>&larr;</button>
+  </a>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background-color: #DFE7EF;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      margin-top: 50px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #5C7CFA;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 18rem;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+      transition: transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .card-body {
+      padding: 10px;
+      margin-top: -50px;
+      transition: all 1s ease-in-out;
+    }
+
+    .card:hover .card-body {
+      margin-top: 0;
+    }
+
+    .card-body a {
+      visibility: hidden;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .card:hover .card-body a {
+      visibility: visible;
+    }
+
+    .card-title {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .heart {
+      color: #989898;
+      font-size: 30px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .heart:hover {
+      color: red;
+      background-color: #f9f9f9;
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    .heart-active {
+      color: #C50707;
+    }
+
+    #toast, #toast-cart {
+      padding: 10px;
+      position: fixed;
+      width: 230px;
+      top: 0;
+      left: 80%;
+      transform: translate(-50%);
+      background-color: #EFF2FF;
+      color: #76777E;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      visibility: hidden;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      z-index: 1000;
+    }
+
+    #toast.show, #toast-cart.show {
+      visibility: visible;
+      animation: fadeInOut 3s;
+    }
+
+    @keyframes fadeInOut {
+      5%, 95% { opacity: 1; top: 50px }
+      15%, 85% { opacity: 1; top: 30px }
+    }
+
+
+    .card-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.4);  
+      color: white;
+      padding: 20px;
+      display: none;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease; 
+    }
+
+    .card:hover .card-info {
+      display: block;
+      opacity: 1;
+    }
+
+    .card-info .price {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .card-info .description {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .card-info .specs {
+      font-size: 12px;
+      margin-top: 10px;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+ 
+    .card-body {
+      position: relative;
+      z-index: 10;
+    }
+
+   
+    #cart-sidebar {
+      position: fixed;
+      right: 0;
+      top: 0;
+      background-color: white;
+      width: 300px;
+      height: 100%;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+      padding: 20px;
+      display: none;
+    }
+
+    #cart-sidebar h2 {
+      font-size: 1.5rem;
+    }
+
+    #cart-sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #cart-sidebar ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #checkout-btn {
+      background-color: #5C7CFA;
+      color: white;
+      font-size: 1rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #checkout-btn:hover {
+      background-color: #4A6CFA;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="toast"></div>
+  <div id="toast-cart"></div>
+
+  <div class="container">
+    <h1>DELL</h1>
+    <hr>
+
+    <div class="row">
+
+      <div class="card" data-id="1" data-name="Swift Go SFG14-72-594D OPI Pure Silver" data-price="500">
+        <span id="heart" class="heart" onclick="wishList()"><i class="fas fa-heart"></i></span>
+        <img src="images/a1c96404-f759-453b-bb53-c4f55c015f4d.webp" alt="Laptop">
+    
+        <div class="card-info">
+          <div class="price">$699</div>
+          <div class="description">a device with this versatility that they can easily take with them anywhere.</div>
+          <div class="specs">
+            <ul>
+              <li>Intel Core 7 Series 1</li>
+              <li>16GB RAM</li>
+              <li>1000GB SSD</li>
+              <li>14 inch Display</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <a href="#" onclick="addCart(this)">Add to cart</a>
+          <hr>
+          <h5 class="card-title">Dell - Inspiron 2-in-1 14” IPS LED FHD+ Touch Screen Laptop – Intel Core 7 with 16GB Memory – 1TB SSD - Ice Blue</h5>
+        </div>
+      </div>
+
+
+      <div class="card" data-id="2" data-name="Aspire 3 A315-24P-R5GC AMD PURE SILVER" data-price="400">
+        <span id="heart-second" class="heart" onclick="wishList()"><i class="fas fa-heart"></i></span>
+        <img src="images/63340a7a-cb88-412d-b633-3591a581395f.webp" alt="Laptop">
+      
+        <div class="card-info">
+          <div class="price">$599</div>
+          <div class="description">Latest AMD Ryzen processors, finish your to-do list in no time. High quality video chats with a built-in HD webcam that keeps you looking your best.</div>
+          <div class="specs">
+            <ul>
+              <li>AMD Ryzen 7 7000 series</li>
+              <li>16GB RAM</li>
+              <li>1000GB SSD</li>
+              <li>15.6-inch Display</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <a href="#" onclick="addCart(this)">Add to cart</a>
+          <hr>
+          <h5 class="card-title">Dell - Inspiron 15.6" Touch Screen Laptop </h5>
+        </div>
+      </div>
+
+      
+      <div class="card" data-id="3" data-name="Nitro V ANV15-51-519K OPI Obsidian Black" data-price="600">
+        <span id="heart-third" class="heart" onclick="wishList()"><i class="fas fa-heart"></i></span>
+        <img src="images/a54e973b-ee54-4602-b482-c77125104dd5.webp" alt="Gaming Laptop">
+    
+        <div class="card-info">
+          <div class="price">$799</div>
+          <div class="description">The Inspiron 15 is as stylish on the outside as it is efficient on the inside.</div>
+          <div class="specs">
+            <ul>
+              <li>Intel 13th Generation Core i7</li>
+              <li>16GB RAM</li>
+              <li>1000GB SSD</li>
+              <li>15 inch 144Hz Display</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <a href="#" onclick="addCart(this)">Add to cart</a>
+          <hr>
+          <h5 class="card-title">Dell - Inspiron 15" Touch Screen Laptop</h5>
+        </div>
+      </div>
+    </div>
+
+
+    <button id="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+  </div>
+
+<script>
+  function wishList(){
+    var list = document.getElementById("toast");
+    list.classList.add("show");
+    list.innerHTML = '<i class="far fa-heart wish"></i> Product added to List';
+    setTimeout(function(){
+      list.classList.remove("show");
+    }, 3000);
+  }
+
+  function addCart(cardElement){
+    const productName = cardElement.closest('.card').dataset.name;
+    const productPrice = parseFloat(cardElement.closest('.card').dataset.price);
+
+    var cart = document.getElementById("toast-cart");
+    cart.classList.add("show");
+    cart.innerHTML = '<i class="fas fa-shopping-cart cart"></i> ' + productName + ' added to cart';
+    setTimeout(function(){
+      cart.classList.remove("show");
+    }, 3000);
+
+
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    cartItems.push({ name: productName, price: productPrice });
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }
+
+  function proceedToCheckout() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cartItems.length === 0) {
+      alert('Your cart is empty.');
+      return;
+    }
+
+    let cartDetails = '';
+    let totalAmount = 0;
+
+    cartItems.forEach(item => {
+      cartDetails += `${item.name} - $${item.price}`;
+      totalAmount += item.price;
+    });
+
+
+    const confirmation = confirm(`
+      Your Cart:
+      ${cartDetails}
+      Total: $${totalAmount}
+
+      Do you want to proceed with the purchase?`);
+
+    if (confirmation) {
+   
+      localStorage.removeItem('cart');
+      alert('You have successfully purchased the products!');
+    }
+  }
+</script>
+
+</body>
+</html>
